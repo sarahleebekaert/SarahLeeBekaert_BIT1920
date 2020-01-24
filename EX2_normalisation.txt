@@ -1,0 +1,17 @@
+UNF: all the data 
+	> PhD_data (Personnel number, Name, Date of birth, Lab code, Lab name, Research code, Research description, Research supervisor) 
+
+1NF: eliminating repeating data 
+	> PhD_data (Personnel number, Name, Date of birth, Lab code, Research code) 
+	> PK: Personnel number, Lab code and Research code 
+
+2NF: attributes dependent on PK only 
+	> PhD_data (Personnel number, Name, Date of birth, Lab code, Research code) 
+	> PhD_data (Lab code, Lab name) 
+	> PhD_data (Research code, Research description, Research supervisor) 
+
+3NF: attributes dependent on PK and other attribute 
+	> PhD_data (Personnel number, Name, Date of birth) 
+	> PhD_data (Personnel number, Lab code, Research code) 
+	> PhD_data (Lab code, Lab name) 
+	> PhD_data (Research code, Research description, Research supervisor) 
