@@ -1,0 +1,10 @@
+Exercise 12: Give the mapping location of the variant rs499899635 in the zebrafish?
+	1. Variant rs499899635 is in mouse not in zebrafish?? 
+	2. $ curl 'http://rest.ensembl.org/
+	3. Chromosome 14:90762419 
+
+
+Exercise 13: Give the first 100 bases of the genomic FASTA sequence of Notch1 gene in mouse
+	1. go to the ensemble website and look for the gene Notch1 in mouse 
+	2. chromosome 2
+	3. make the curl $ curl 'http://rest.ensembl.org/sequence/id/ENSMUSG00000026923/2:0..100?type=genomic' -H "Content-type:text/x-fasta"
