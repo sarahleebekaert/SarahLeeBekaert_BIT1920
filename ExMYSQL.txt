@@ -1,0 +1,25 @@
+Exercise 4: Give the name and the lenght of the third largest gene in the genome 
+	> select gene_name, sum(seq_region_end - seq_region_start +1) as size from gene group by gene_name order by size desc limit 1 offset 2; 
+	> Gene_name PARP1 and lenght 2493040 
+
+Exercise 5: Give the name of the gene with the most exons plus the number of exons
+	> select gene_name, count(exon_id) from gene join exon on  gene.seq_region_start = exon.seq_region_start group by gene_name order by count(exon_id) desc limit 1 ; 
+	> Gene_name U6 and total exons 1335 
+
+Exercise 6: Give the name of the chromosome with the most genes associated with breast cancer. 
+Give the number of transcripts of this chromosome 
+	> select chromosome, count(gene_name) from gene where description rlike 'breast cancer' group by chromosome order by count(gene_name) desc limit 1 ; 
+	> Chromosome 16 with 2 genes 
+
+	> select chromosome, count(transcript_id) as transcripts from gene join transcript on gene.gene_id = transcript.gene_id where chromosome = 16 group by chromosome ; 
+	> Total transcripts for chromosome 16 is 3636
+
+Exercise 7: Give the numbers of rows from the exon table and for the exon_transcript table (2 queries). Why is there a difference in number of rows? 
+	> select * from exon ;			642590 for exon table 
+	> select * from exon_transcript; 1	1178393 for exon_transcript 
+	> 1 exon can code for mutiple mRNA transcripts, that is why there are many more transcripts than exons. 
+
+
+
+
+
